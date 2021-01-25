@@ -29,7 +29,10 @@
 		M.Paralyze(max(20/max(1,distance), 5))
 		M.Knockdown(max(200/max(1,distance), 60))
 //Bang
-	if(T.return_air().return_pressure() <= 30) // no bang in low pressure enviroments
+	var/turf/open/O = T
+	if(!istype(O))
+		return
+	if(O.air.return_pressure() <= 30) // no bang in low pressure enviroments
 		return
 	if(!distance || loc == M || loc == M.loc)	//Stop allahu akbarring rooms with this.
 		M.Paralyze(20)
