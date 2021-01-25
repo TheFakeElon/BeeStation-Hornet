@@ -252,7 +252,8 @@
 		var/atom/A = holder.my_atom
 		A.flash_lighting_fx(_range = (range + 2), _reset_lighting = FALSE)
 	for(var/mob/living/carbon/C in hearers(range, location))
-		if(C.flash_act())
+		var/pressure = location.return_air().return_pressure()
+		if(C.flash_act() && pressure >= 30)
 			if(get_dist(C, location) < 4)
 				C.Paralyze(60)
 			else
