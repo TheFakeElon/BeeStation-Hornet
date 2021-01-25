@@ -32,13 +32,11 @@
 	var/turf/open/O = T
 	if(!istype(O))
 		return
-	if(O.air.return_pressure() <= 30) // no bang in low pressure enviroments
-		return
 	if(!distance || loc == M || loc == M.loc)	//Stop allahu akbarring rooms with this.
 		M.Paralyze(20)
 		M.Knockdown(200)
 		M.soundbang_act(1, 200, 10, 15)
-	else
+	else if(O.air.return_pressure() >= 30)
 		if(distance <= 1)
 			M.Paralyze(5)
 			M.Knockdown(30)

@@ -242,6 +242,8 @@
 	results = list(/datum/reagent/flash_powder = 3)
 	required_reagents = list(/datum/reagent/aluminium = 1, /datum/reagent/potassium = 1, /datum/reagent/sulfur = 1 )
 
+#define check_pressure(T) (istype(T) && T.air?.return_pressure() >= 30)
+
 /datum/chemical_reaction/flash_powder/on_reaction(datum/reagents/holder, created_volume)
 	if(holder.has_reagent(/datum/reagent/stabilizing_agent))
 		return
@@ -251,21 +253,14 @@
 	if(isatom(holder.my_atom))
 		var/atom/A = holder.my_atom
 		A.flash_lighting_fx(_range = (range + 2), _reset_lighting = FALSE)
-	if(check_pressure(location))
-		for(var/mob/living/carbon/C in hearers(range, location))
-			var/turf/open/TO = get_turf(C)
-			if(!check_pressure(TO) && O != TO)
-				break
-			if(C.flash_act())
-				if(get_dist(C, location) < 4)
-					C.Paralyze(60)
-				else
-					C.Stun(100)
+	for(var/mob/living/carbon/C in hearers(range, location))
+		var/turf/open/TO = get_turf(C)
+		if(C.flash_act() && (!check_pressure(TO) && location != TO))
+			if(get_dist(C, location) < 4)
+				C.Paralyze(60)
+			else
+				C.Stun(100)
 	holder.remove_reagent(/datum/reagent/flash_powder, created_volume*3)
-
-/datum/chemical_reaction/flash_powder/proc/check_pressure(turf/T)
-	var/turf/open/O = T
-	return (istype(O) && O.air?.return_pressure() >= 30)
 
 /datum/chemical_reaction/flash_powder_flash
 	name = "Flash powder activation"
@@ -282,10 +277,13 @@
 		A.flash_lighting_fx(_range = (range + 2), _reset_lighting = FALSE)
 	for(var/mob/living/carbon/C in hearers(range, location))
 		if(C.flash_act())
-			if(get_dist(C, location) < 4)
+			var/turf/open/TO = get_turf(C)
+			if(get_dist(C, location) < 4 && (!check_pressure(TO) && location != TO))
 				C.Paralyze(60)
 			else
 				C.Stun(100)
+
+#undef check_pressure
 
 /datum/chemical_reaction/smoke_powder
 	name = /datum/reagent/smoke_powder
