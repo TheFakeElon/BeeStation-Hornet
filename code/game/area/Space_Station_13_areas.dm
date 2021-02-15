@@ -424,16 +424,16 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Unisex Locker Room"
 	icon_state = "fitness"
 
-/area/crew_quarters/fitness/recreation
-	name = "Recreation Area"
-	icon_state = "fitness"
-	nightshift_public_area = NIGHTSHIFT_AREA_RECREATION
 
 /area/crew_quarters/fitness/cogpool
 	name = "Pool"
 	icon_state = "fitness"
 	clockwork_warp_fail = "Pool's closed."
 	nightshift_public_area = NIGHTSHIFT_AREA_RECREATION
+
+/area/crew_quarters/fitness/pool
+	name = "Pool Area"
+	icon_state = "pool"
 
 /area/crew_quarters/cafeteria
 	name = "Cafeteria"
@@ -464,6 +464,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/crew_quarters/electronic_marketing_den
 	name = "Electronic Marketing Den"
 	icon_state = "bar"
+
+/area/crew_quarters/arcade
+	name = "Arcade"
+	icon_state = "abandoned_g_den"
+	nightshift_public_area = NIGHTSHIFT_AREA_RECREATION
 
 /area/crew_quarters/abandoned_gambling_den
 	name = "Abandoned Gambling Den"
@@ -600,16 +605,29 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Transit Tube"
 	icon_state = "transit_tube"
 
-/area/engine/teg_hot
+/area/engine/atmos/aftair
+	name = "Aft Air Hookup"
+	icon_state = "atmos"
+	flags_1 = NONE
+
+/area/engine/teg
+	name = "Thermo-Electric Generator"
+	icon_state = "engine"
+
+/area/engine/teg/hotloop
 	name = "Hot Loop"
 	icon_state = "red"
 
-/area/engine/teg_cold
+/area/engine/teg/coldloop
 	name = "Cold Loop"
 	icon_state = "blue"
 
 /area/engine/workshop
 	name = "Engineering Workshop"
+	icon_state = "engine"
+
+/area/engine/substation
+	name = "Electrical Substation"
 	icon_state = "engine"
 
 //Solars
@@ -759,6 +777,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Virology"
 	icon_state = "virology"
 	flags_1 = NONE
+
+/area/medical/clinic
+	name = "Clinic"
+	icon_state = "medbay3"
+	ambientsounds = MEDICAL
 
 /area/medical/morgue
 	name = "Morgue"
@@ -1050,6 +1073,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Research Division Server Room"
 	icon_state = "server"
 
+/area/science/server/compcore
+	name = "Computer Core"
+	icon_state = "server"
+
 /area/science/explab
 	name = "Experimentation Lab"
 	icon_state = "toxmisc"
@@ -1133,6 +1160,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Secondary Construction Area"
 	icon_state = "yellow"
 
+/area/construction/minisat_exterior
+	name = "Minisat Exterior"
+	icon_state = "yellow"
+
 /area/construction/mining/aux_base
 	name = "Auxiliary Base Construction"
 	icon_state = "aux_base_construction"
@@ -1141,17 +1172,13 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Auxiliary Closet Construction"
 	icon_state = "yellow"
 
-/area/construction/storage_wing
-	name = "Storage Wing"
-	icon_state = "storage_wing"
-
-/area/construction/minisat_exterior
-	name = "Minisat Exterior"
-	icon_state = "yellow"
-
 /area/construction/supplyshuttle
 	name = "Supply Shuttle"
 	icon_state = "yellow"
+
+/area/construction/storage_wing
+	name = "Storage Wing"
+	icon_state = "storage_wing"
 
 /area/construction/quarters
 	name = "Engineers' Quarters"
@@ -1181,10 +1208,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Storage Wing"
 	icon_state = "storage_wing"
 
-//Routers
+//Routers (Currently exclusive to CogStation)
 
 /area/router
-	name = "Router"
+	name = "Routing Depot"
 	icon_state = "yellow"
 	ambientsounds = ENGINEERING
 
