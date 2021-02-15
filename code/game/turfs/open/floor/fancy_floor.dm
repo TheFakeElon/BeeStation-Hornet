@@ -268,6 +268,12 @@
 /turf/open/floor/carpet/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	return FALSE
 
+/turf/open/floor/carpet/arcade
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "arcade"
+	floor_tile = /obj/item/stack/tile/carpet/arcade
+	smooth = SMOOTH_FALSE
+	canSmoothWith = list()
 
 /turf/open/floor/fakepit
 	desc = "A clever illusion designed to look like a bottomless pit."

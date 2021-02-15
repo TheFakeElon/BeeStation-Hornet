@@ -1792,7 +1792,9 @@ datum/supply_pack/medical/bruisekits
 					/obj/item/stack/tile/eighties/fifty,
 					/obj/item/stack/tile/eighties/fifty,
 					/obj/item/stack/tile/carpet/royalblack/fifty,
-					/obj/item/stack/tile/carpet/royalblack/fifty)
+					/obj/item/stack/tile/carpet/royalblack/fifty,
+					/obj/item/stack/tile/carpet/arcade/fifty,
+					/obj/item/stack/tile/carpet/arcade/fifty)
 	crate_name = "exotic carpet crate"
 
 /datum/supply_pack/service/lightbulbs

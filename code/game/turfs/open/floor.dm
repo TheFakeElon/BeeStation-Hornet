@@ -47,7 +47,7 @@
 					"basalt0","basalt1","basalt2","basalt3","basalt4",
 					"basalt5","basalt6","basalt7","basalt8","basalt9","basalt10","basalt11","basalt12",
 					"oldburning","light-on-r","light-on-y","light-on-g","light-on-b", "wood", "carpetsymbol", "carpetstar",
-					"carpetcorner", "carpetside", "carpet", "ironsand1", "ironsand2", "ironsand3", "ironsand4", "ironsand5",
+					"carpetcorner", "carpetside", "carpet", "arcade", "ironsand1", "ironsand2", "ironsand3", "ironsand4", "ironsand5",
 					"ironsand6", "ironsand7", "ironsand8", "ironsand9", "ironsand10", "ironsand11",
 					"ironsand12", "ironsand13", "ironsand14", "ironsand15")
 	if(broken || burnt || (icon_state in icons_to_ignore_at_floor_init)) //so damaged/burned tiles or plating icons aren't saved as the default
